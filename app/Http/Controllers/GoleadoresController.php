@@ -13,7 +13,7 @@ class GoleadoresController extends Controller
      */
     public function index()
     {
-        //
+        return view('goleadores.Goleadores');
     }
 
     /**

@@ -42,6 +42,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('jornadas')}}"><i class="fas fa-list-ol"></i> Jornadas</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url('goleadores')}}"><i class="fas fa-futbol"></i> Goleadores</a>
+                </li>
                 @endif
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('Dashboard')}}"><i class="fas fa-chart-line"></i> Dashboard</a>

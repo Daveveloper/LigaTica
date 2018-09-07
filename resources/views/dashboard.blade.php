@@ -205,7 +205,7 @@
 
 
             <section id="goleadores" class="mt-5 text-center">
-                <h2>Estadisticas individuales</h2>
+                <h2><i class="fas fa-futbol"></i> Estadisticas individuales</h2>
                 <div class="row justify-content-center">
                     <div class="col-sm-6 shadow  p-2">
                         <h5>Goleadores</h5>
