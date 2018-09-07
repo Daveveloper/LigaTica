@@ -170,7 +170,7 @@ class JornadasController extends Controller
         $lista = DB::table('Partidos')
             ->join('Equipos as el','partidos.equipocasa','=',  'el.id')
             ->join('Equipos as ev','partidos.equipovisita','=',  'ev.id')
-            ->select('el.nombre as local','partidos.golCasa','ev.nombre as visita','partidos.golVisita','partidos.jornada')
+            ->select('el.nombre as local','partidos.golCasa','ev.nombre as visita','partidos.golVisita','partidos.jornada','partidos.id')
             ->orderBy('jornada')
             ->get();
 

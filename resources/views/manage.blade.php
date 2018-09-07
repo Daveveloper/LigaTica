@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div>
+    <div class="gradiente text-white">
         <div class="col-md-12 text-center">
             @if (session('status'))
                 <div class="alert alert-success" role="alert">
@@ -16,7 +16,7 @@
         <div class="row justify-content-center">
 
             <div class="card col-auto">
-                <div class="card-header"><i class="fas fa-users"></i> Equipos</div>
+                <div class="card-header"><h3><i class="fas fa-users"></i> Equipos</h3></div>
                 <div class="card-body">
                     <ul class="list-unstyled">
                         <li><a href="{{ route('Equipos') }}" class="btn btn-light"><i class="fas fa-columns"></i> Panel de equipos</a></li>
@@ -26,7 +26,7 @@
             </div>
 
             <div class="card col-auto ml-1 mr-1">
-                <div class="card-header"><i class="fas fa-list-ol"></i> Jornadas</div>
+                <div class="card-header"><h3><i class="fas fa-list-ol"></i> Jornadas</h3></div>
                 <div class="card-body">
                     <ul class="list-unstyled">
                         <li><a href="{{ route('jornadas') }}" class="btn btn-light"><i class="fas fa-columns"></i> Panel de jornadas</a></li>
@@ -36,7 +36,7 @@
             </div>
 
             <div class="card col-auto">
-                <div class="card-header"><i class="fas fa-user-cog"></i> Dashboard</div>
+                <div class="card-header"><h3><i class="fas fa-user-cog"></i> Dashboard</h3></div>
                 <div class="card-body">
                     <a href="{{ url('/dashboard') }}" class="btn btn-light btn-lg">
                         <i class="fas fa-user-cog"></i> Ir al Dashboard
@@ -46,4 +46,5 @@
 
         </div>
     </div>
+
 @endsection

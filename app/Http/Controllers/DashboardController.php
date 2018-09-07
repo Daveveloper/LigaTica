@@ -14,6 +14,26 @@ use App\model\Jornadas;
 
 class DashboardController extends Controller
 {
+
+    /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+    //Array para obtener los nombres de los equipos sin consultar la base de datos.
+            private $equipos = array(
+            1 => 'Alajuela',
+            2 => 'Saprissa',
+            3 => 'Heredia',
+            4 => 'Cartago',
+            5 => 'Santos',
+            6 => 'Perez Zeledon',
+            7 => 'Carmelita',
+            8 => 'Guadalupe',
+            9 => 'San Carlos',
+            10 => 'Limon',
+            11 => 'UCR',
+            12 => 'Grecia'
+            );
+    /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -23,7 +43,6 @@ class DashboardController extends Controller
 
             $user = Auth::user();
             $teams = Equipos::all();
-
 
             /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
                         /*ENCONTRAR UNA FORMA DE LEER LA FECHA DE LA PROXIMA JORNADA*/
@@ -41,27 +60,7 @@ class DashboardController extends Controller
             }else{
                 $lista_partidos = Partidos::all()->where('jornada', $jornada[0]->num_jornada);
             }
-                /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-
-
-            /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-            //Array para obtener los nombres de los equipos sin consultar la base de datos.
-            $equipos = array(
-                1 => 'Alajuela',
-                2 => 'Saprissa',
-                3 => 'Heredia',
-                4 => 'Cartago',
-                5 => 'Santos',
-                6 => 'Perez Zeledon',
-                7 => 'Carmelita',
-                8 => 'Guadalupe',
-                9 => 'San Carlos',
-                10 => 'Limon',
-                11 => 'UCR',
-                12 => 'Grecia'
-            );
-            /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-
+            /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 
             /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
@@ -71,12 +70,10 @@ class DashboardController extends Controller
                 ->orderBy('diferencia', 'desc')->get();
             /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
-
-
             return view('dashboard')
                 ->with('fecha', $fecha)
                 ->with('partidos', $lista_partidos)
-                ->with('equipos', $equipos)
+                ->with('equipos', $this->equipos)
                 ->with('teams', $teams)
                 ->with('posiciones', $posiciones)
                 ->with('user', $user);
@@ -89,24 +86,9 @@ class DashboardController extends Controller
         $lista_partidos = Partidos::all()->where('jornada','=', $data);
         $teams = Equipos::all();
 
-        $equipos = array(
-            1=>'Alajuela',
-            2=>'Saprissa',
-            3=>'Heredia',
-            4=>'Cartago',
-            5=>'Santos',
-            6=>'Perez Zeledon',
-            7=>'Carmelita',
-            8=>'Guadalupe',
-            9=>'San Carlos',
-            10=>'Limon',
-            11=>'UCR',
-            12=>'Grecia'
-        );
-
         return view('dashboard')
             ->with('partidos', $lista_partidos)
-            ->with('equipos', $equipos)
+            ->with('equipos', $this->equipos)
             ->with('teams',$teams)
             ->with('id', $data);
     }

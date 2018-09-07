@@ -17,16 +17,18 @@
                                 <th>Local</th>
                                 <th>Visita</th>
                                 <th>Resultado</th>
+                                <th></th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($lista as $partido)
                             @if($j->num_jornada == $partido->jornada)
-                            <tr>
-                                <td>{{ $partido->local }}</td>
-                                <td>{{ $partido->visita }}</td>
-                                <td>{{ $partido->golCasa }} : {{ $partido->golVisita }}</td>
-                            </tr>
+                                <tr>
+                                    <td>{{ $partido->local }}</td>
+                                    <td>{{ $partido->visita }}</td>
+                                    <td>{{ $partido->golCasa }} : {{ $partido->golVisita }}
+                                    <td><a href="{{ route('jornadas.partido',[$partido->id]) }}" class="text-dark"><i class="fas fa-search"></i></a></td>
+                                </tr>
                             @endif
                             @endforeach
                             </tbody>

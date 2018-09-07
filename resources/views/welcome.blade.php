@@ -82,7 +82,10 @@
                 @if (Route::has('login'))
                     <div class="links m-b-md">
                         @auth
-                            <a href="{{ url('/dashboard') }}">Dashboard</a>
+                            <a href="{{ url('/dashboard') }}"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                            @if(Auth::user()->hasRole('admin'))
+                                <a href="{{ url('/manage') }}"><i class="fas fa-cogs"></i> Administrar</a>
+                            @endif
                         @else
                             <a href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> Login</a>
                             <a href="{{ route('register') }}"><i class="fas fa-address-card"></i> Register</a>
